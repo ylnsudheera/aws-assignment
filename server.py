@@ -1,10 +1,14 @@
-from flask import Flask
-app = Flask(__name__)
+from flask import Flask,render_template
+app = Flask(__name__,static_url_path='')
 from flask import request
 
 @app.route('/')
 def hello_world():
-    return 'Hello, World!'
+    return render_template('index.html')
+
+@app.route('/<string:page_name>/')
+def render_static(page_name):
+    return render_template(page_name)
 
 @app.route('/save_employee')
 def save_employee():
