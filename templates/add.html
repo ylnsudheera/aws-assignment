@@ -3,18 +3,21 @@
 <head>
 	<title>insert employee data</title>
 </head>
-<script src="js/jquery-3.3.1.min.js"></script>
+<script src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
 <body>
 	<script type="text/javascript">
-		$("#save").click(function save_employee(argument) {
-			var Name = $("#name").val()
-			var Age = $("#id").val()
-			$.ajax({
-				url: "http://ec2-35-154-70-13.ap-south-1.compute.amazonaws.com:8080/save_employee?name="+Name+"&age="+Age,
-  				success: function function_name(argument) {
-  					$("#response").html(argument)
-  				}
-  			})
+		$(document).ready(function(){
+			$("#save").click(function save_employee(argument) {
+				var Name = $("#name").val()
+				var Age = $("#age").val()
+				$.ajax({
+					url: "http://ec2-35-154-70-13.ap-south-1.compute.amazonaws.com:8080/save_employee?name="+Name+"&age="+Age,
+  					success: function function_name(argument) {
+  						$("#response").html(argument)
+						alert(argument);
+  					}
+  				})
+			});
 		});
 	</script>
 	<div>

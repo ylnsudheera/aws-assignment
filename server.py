@@ -13,7 +13,7 @@ def render_static(page_name):
 @app.route('/save_employee')
 def save_employee():
 	import MySQLdb
-	reply = "success"
+	reply = "saved successfully"
 	conn = MySQLdb.connect(host= "aws-assignment.cdggmmymki0w.ap-south-1.rds.amazonaws.com",
                   user="sudheera",
                   passwd="sudheera123",

@@ -8,12 +8,9 @@ conn = MySQLdb.connect(host= "aws-assignment.cdggmmymki0w.ap-south-1.rds.amazona
 x = conn.cursor()
 name = "bala"
 age = 22
-query = "INSERT INTO emp(name,age) values('"+name+"',"+str(age)+")"
-try:
-	x.execute(query)
-	conn.commit()
-except Exception:
-	print("error")
-	conn.rollback()
-
+#query = "INSERT INTO emp(name,age) values('"+name+"',"+str(age)+")"
+query= "select * from emp"
+x.execute(query)
+data=x.fetchall()
+print(data)
 conn.close()
