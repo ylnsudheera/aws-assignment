@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>insert employee data</title>
+</head>
+<script src="{{url_for('static', filename='js/jquery-3.3.1.min.js')}}"></script>
+<body>
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#save").click(function save_employee(argument) {
+				var Name = $("#name").val()
+				var Age = $("#age").val()
+				$.ajax({
+					url: "http://ec2-35-154-70-13.ap-south-1.compute.amazonaws.com:8080/save_employee?name="+Name+"&age="+Age,
+  					success: function function_name(argument) {
+  						$("#response").html(argument)
+						alert(argument);
+  					}
+  				})
+			});
+		});
+	</script>
+	<div>
+		<table>
+			<tr>
+				<td>Name: </td>
+				<td><input id="name" placeholder="Name" type="text" name="name"/></td>
+			</tr>
+			<tr>
+				<td>Age: </td>
+				<td><input id="age" placeholder="Age" type="text" name="age"/></td>
+			</tr>
+			<tr>
+				<td><input type="button" id="save" value="Save"/></td>
+				<td><input type="button" id="cancel" value="Cancel"/></td>
+			</tr>
+		</table>
+		<div id="response">
+			
+		</div>
+	</div>
+</body>
+</html>
